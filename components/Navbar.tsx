@@ -5,6 +5,8 @@ import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ModeToggle } from './mode-toggle'
+import { signOut, useSession } from 'next-auth/react'
+import { Button } from './ui/button'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,6 +16,7 @@ const Navbar = () => {
     // { href: '/login', label: 'Login' },
   ]
   const { theme, setTheme } = useTheme()
+  const { data: session }: any = useSession()
   return (
     <>
       <header className='  max-w-[1440px] mx-auto z-10 w-full'>
@@ -27,15 +30,15 @@ const Navbar = () => {
                 <Image
                   src={'/logo-white.svg'}
                   alt='icon'
-                  width={170}
-                  height={28}
+                  width={180}
+                  height={30}
                 />
               ) : (
                 <Image
                   src={'/logo-black.svg'}
                   alt='icon'
-                  width={170}
-                  height={28}
+                  width={180}
+                  height={30}
                 />
               )}
             </Link>
@@ -52,12 +55,23 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
-            <Link
-              href={'/login'}
-              className='font-montserrat leading-normal bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-md'
-            >
-              Login
-            </Link>
+            {!session ? (
+              <Link
+                href={'/login'}
+                className='font-montserrat leading-normal bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-md'
+              >
+                Login
+              </Link>
+            ) : (
+              <Button
+                onClick={() => {
+                  signOut()
+                }}
+                className='p-2 px-5   rounded-sm'
+              >
+                Logout
+              </Button>
+            )}
             <ModeToggle />
           </ul>
 
@@ -75,8 +89,8 @@ const Navbar = () => {
                     : '/assets/icons/close.svg'
                 }
                 alt='icon'
-                width={40}
-                height={40}
+                width={24}
+                height={24}
               />
             ) : (
               <Image
@@ -86,16 +100,16 @@ const Navbar = () => {
                     : '/assets/icons/menu.svg'
                 }
                 alt='icon'
-                width={40}
-                height={40}
+                width={25}
+                height={24}
               />
             )}
           </div>
         </nav>
       </header>
       {isMenuOpen && (
-        <div className='flex justify-end'>
-          <ul className='absolute w-1/4 lg:hidden flex flex-col items-end justify-start  p-4 gap-6 '>
+        <div className='flex justify-end border-2'>
+          <ul className='absolute w-1/4 lg:hidden flex flex-col items-start justify-start  p-4 gap-6 border-2 '>
             {navLinks.map((item) => (
               <li key={item.label}>
                 <Link
@@ -106,12 +120,23 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
-            <Link
-              href='/login'
-              className='font-montserrat leading-normal text-lg   '
-            >
-              Login
-            </Link>
+             {!session ? (
+              <Link
+                href={'/login'}
+                className='font-montserrat leading-normal bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-md'
+              >
+                Login
+              </Link>
+            ) : (
+              <Button
+                onClick={() => {
+                  signOut()
+                }}
+                className='p-2 px-5   rounded-sm'
+              >
+                Logout
+              </Button>
+            )}
 
             <ModeToggle />
           </ul>
