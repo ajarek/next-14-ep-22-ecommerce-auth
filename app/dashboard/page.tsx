@@ -21,15 +21,16 @@ export default function Dashboard() {
   }
 
   return (
-    <div className='grid place-items-center h-screen'>
-      <div className='shadow-lg p-8 bg-zinc-300/10 flex flex-col justify-center items-center'>
+    <div className='w-full min-h-screen px-24 py-4 max-sm:px-4 '>
+      <div className=' bg-zinc-300/10 flex flex-col justify-center items-center mb-4 p-8 '>
         <div className=' '>
-          Email: <span className='font-bold'>{session?.data?.user?.email}</span>
+         Welcome Admin : <span className='font-bold uppercase'>{session?.data?.user?.email?.split('@')[0]}</span>
         </div>
+        <h2>Adding New Products</h2>
       </div>
       <form
       action={create}
-      className='p-24 max-sm:px-2 max-sm:py-4 flex flex-col justify-evenly gap-4'
+      className='   flex flex-col justify-evenly gap-4'
     >
       <Label htmlFor='image'>Image Address</Label>
       <Input

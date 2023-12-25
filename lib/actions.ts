@@ -36,6 +36,6 @@ export async function create(formData: FormData) {
   } catch {
     return { message: 'Failed to create product' }
   } finally {
-    redirect('/')
+    redirect('/dashboard')
   }
 }
