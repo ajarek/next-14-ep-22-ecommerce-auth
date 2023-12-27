@@ -53,7 +53,7 @@ const Categories = () => {
         {categoriesLinks.map((item) => (
           <li key={item.label}>
             <Link
-              href={item.href}
+              href={`/shop/${item.href}`}
               className='font-montserrat leading-normal text-lg text-slate-gray'
             >
               <Card>
