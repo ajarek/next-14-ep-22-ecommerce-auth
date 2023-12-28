@@ -25,7 +25,7 @@ const page = async ({ params }: { params: { category: string } }) => {
         {array.map((item) => (
           <li key={item._id}>
             <Link
-              href={`/shop/${item.category}`}
+              href={`/idProduct/${item._id}`}
               className='font-montserrat leading-normal text-lg text-slate-gray'
             >
               <Card className='min-h-[350px] flex flex-col justify-between p-4 '>
