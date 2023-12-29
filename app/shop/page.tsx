@@ -18,6 +18,7 @@ const Shop = async () => {
   })) 
   return (
     <div className="flex min-h-screen flex-col items-start justify-between p-8 max-md:p-4">
+      <h1 className='text-xl'>Showing <span>{products.length}</span> Products</h1>
      <ul className='grid grid-cols-3 max-md:grid-cols-1 gap-6'>
         {products.map((item) => (
           <li key={item._id}>
