@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { ModeToggle } from './mode-toggle'
 import { signOut, useSession } from 'next-auth/react'
 import { Button } from './ui/button'
+import { fetchStorage } from '@/utils/localStorage'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,6 +18,7 @@ const Navbar = () => {
   ]
   const { theme, setTheme } = useTheme()
   const { data: session }: any = useSession()
+  const len =fetchStorage('Products').length
   return (
     <>
       <header className='  max-w-[1440px] mx-auto z-10 w-full'>
@@ -72,6 +74,34 @@ const Navbar = () => {
                 Logout
               </Button>
             )}
+
+            <Link
+              href='/cart'
+              className='flex'
+            >
+              {theme === 'dark' ? (
+                <>
+                  <Image
+                    src={'/assets/icons/cart.svg'}
+                    alt='icon'
+                    width={40}
+                    height={40}
+                    className='bg-white rounded-sm mr-2'
+                  />
+                  <sup className='text-xl'>{len}</sup>
+                </>
+              ) : (
+                <>
+                <Image
+                  src={'/assets/icons/cart.svg'}
+                  alt='icon'
+                  width={40}
+                  height={40}
+                />
+                <sup className='text-xl'>{len}</sup>
+                </>
+              )}
+            </Link>
             <ModeToggle />
           </ul>
 
@@ -120,7 +150,7 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
-             {!session ? (
+            {!session ? (
               <Link
                 href={'/login'}
                 className='font-montserrat leading-normal bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-md'
