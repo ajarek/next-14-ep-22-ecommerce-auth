@@ -60,7 +60,8 @@ const Navbar = () => {
             {!session ? (
               <Link
                 href={'/login'}
-                className='font-montserrat leading-normal bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-md'
+                className='border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 rounded-md '
+
               >
                 Login
               </Link>
@@ -70,6 +71,7 @@ const Navbar = () => {
                   signOut()
                 }}
                 className='p-2 px-5   rounded-sm'
+                variant='outline'
               >
                 Logout
               </Button>
