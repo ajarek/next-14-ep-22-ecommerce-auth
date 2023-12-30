@@ -18,7 +18,7 @@ const Navbar = () => {
   ]
   const { theme, setTheme } = useTheme()
   const { data: session }: any = useSession()
-  const len =fetchStorage('Products').length
+  const len =fetchStorage('Products').length ||0
   return (
     <>
       <header className='  max-w-[1440px] mx-auto z-10 w-full'>
@@ -141,7 +141,7 @@ const Navbar = () => {
       </header>
       {isMenuOpen && (
         <div className='flex justify-end border-2'>
-          <ul className='absolute w-1/4 lg:hidden flex flex-col items-start justify-start  p-4 gap-6 border-2 '>
+          <ul className='absolute w-1/4 lg:hidden flex flex-col items-start justify-start  p-4 gap-6 border-2  '>
             {navLinks.map((item) => (
               <li key={item.label}>
                 <Link
@@ -169,7 +169,33 @@ const Navbar = () => {
                 Logout
               </Button>
             )}
-
+            <Link
+              href='/cart'
+              className='flex'
+            >
+              {theme === 'dark' ? (
+                <>
+                  <Image
+                    src={'/assets/icons/cart.svg'}
+                    alt='icon'
+                    width={40}
+                    height={40}
+                    className='bg-white rounded-sm mr-2'
+                  />
+                  <sup className='text-xl'>{len}</sup>
+                </>
+              ) : (
+                <>
+                <Image
+                  src={'/assets/icons/cart.svg'}
+                  alt='icon'
+                  width={40}
+                  height={40}
+                />
+                <sup className='text-xl'>{len}</sup>
+                </>
+              )}
+            </Link>
             <ModeToggle />
           </ul>
         </div>
