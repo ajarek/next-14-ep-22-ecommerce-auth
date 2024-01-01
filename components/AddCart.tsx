@@ -4,16 +4,27 @@ import React from 'react'
 import { Button } from './ui/button'
 import { saveStorage } from '@/utils/localStorage'
 
+interface AddCartProps {
+  id: string;
+}
 
-
-const AddCart = ({id}:any) => {
+const AddCart = ({id}:AddCartProps) => {
   const router = useRouter()
-  const addToCart= ()=>{
-    const newProduct ={
-      dataId:id,
+  type NewProduct = {
+    dataId: string;
+  }
+
+  const addToCart = () => {
+    
+    try {
+      const newProduct: NewProduct = {
+        dataId: id,
+      }
+      saveStorage(newProduct, 'Products')
+      router.push('/shop')
+    } catch (error) {
+      console.error('Error occurred while saving to localStorage:', error)
     }
-    saveStorage(newProduct,'Products')
-    router.push('/shop')
   }
   return (
     <div  className='w-full flex '>
