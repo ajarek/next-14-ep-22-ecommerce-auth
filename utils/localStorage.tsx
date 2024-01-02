@@ -1,12 +1,17 @@
-export const saveStorage = (newData: any, name: string) => {
-  const localStorageData = localStorage.getItem(name)
-  let data
-  localStorageData === null
-    ? (data = [])
-    : (data = JSON.parse(localStorageData))
-  data.push(newData)
-  localStorage.setItem(name, JSON.stringify(data))
-}
+
+export const saveStorage = (newData: any, name: string): void => {
+  const localStorageData: string | null = localStorage.getItem(name);
+  let data: any[];
+
+  if (localStorageData === null) {
+    data = [];
+  } else {
+    data = JSON.parse(localStorageData);
+  }
+
+  data.push(newData);
+  localStorage.setItem(name, JSON.stringify(data));
+};
 export const saveStorageSingle = (newData: any, name: string) => {
   localStorage.setItem(name, JSON.stringify(newData))
 }

@@ -3,9 +3,9 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 const Loading = () => {
   return (
-    <div className="w-full h-screen mx-auto">
+    <div className="w-screen h-screen flex items-center justify-center">
       
-      <Skeleton className="w-[300px] h-[200px] rounded-full" />
+      <Skeleton className="w-[300px] h-[300px] rounded-full" />
     </div>
   )
 }
