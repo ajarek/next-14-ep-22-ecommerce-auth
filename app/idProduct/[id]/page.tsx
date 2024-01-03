@@ -34,7 +34,7 @@ const { id } = params
            <h2 className='font-bold'>Description</h2>
           <p>{product.description}</p>
           </div>
-          <AddCart id={id}/>
+          <AddCart id={product._id.toString()} price={product.price} name={product.name} image={product.image}/>
         </div>
 
       </div>

@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import { ThemeProvider } from "@/components/theme-provider"
 import SessionProvider from '@/utils/SessionProvider'
 import { getServerSession } from 'next-auth'
+import CartProvider from '@/contexts/CartProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <CartProvider>
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -32,6 +34,7 @@ export default async function RootLayout({
         {children}
         </SessionProvider>
         </ThemeProvider>
+        </CartProvider>
         </body>
     </html>
   )
