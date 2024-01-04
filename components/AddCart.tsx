@@ -1,9 +1,9 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
-import { Button } from './ui/button'
 import { CartContext } from '@/contexts/context'
-import { saveStorage } from '@/utils/localStorage'
+import { Button } from './ui/button'
+
 
 interface AddCartProps {
   id: string
@@ -32,16 +32,18 @@ const AddCart = ({ id, price, name, image }: AddCartProps)=> {
     }
 
     try {
-     const newCart= setCart([...cart, newProduct])
-     saveStorage(newProduct, 'Products')
+   setCart([...cart, newProduct])
+    
     } catch (error) {
       console.error('Error occurred while saving to localStorage:', error)
     } finally {
      
-      // router.push('/cart')
+      
+        router.push('/cart')
     }
   }
-
+  
+  
   return (
     <div className='w-full flex'>
       <Button

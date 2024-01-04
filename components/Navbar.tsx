@@ -1,13 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { useTheme } from 'next-themes'
+import { CartContext } from '@/contexts/context'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ModeToggle } from './mode-toggle'
 import { signOut, useSession } from 'next-auth/react'
 import { Button } from './ui/button'
-import { fetchStorage } from '@/utils/localStorage'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,7 +18,7 @@ const Navbar = () => {
   ]
   const { theme, setTheme } = useTheme()
   const { data: session }: any = useSession()
-  const len =fetchStorage('Products').length ||0
+  const { cart, setCart } = useContext(CartContext)
   return (
     <>
       <header className='  max-w-[1440px] mx-auto z-10 w-full'>
@@ -90,7 +90,7 @@ const Navbar = () => {
                     height={40}
                     className='bg-white rounded-sm mr-2'
                   />
-                  <sup className='text-xl'>{len}</sup>
+                  <sup className='text-xl'>{}</sup>
                 </>
               ) : (
                 <>
@@ -100,7 +100,7 @@ const Navbar = () => {
                   width={40}
                   height={40}
                 />
-                <sup className='text-xl'>{len}</sup>
+                <sup className='text-xl'>{cart.length}</sup>
                 </>
               )}
             </Link>
