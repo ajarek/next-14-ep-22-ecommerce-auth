@@ -90,7 +90,7 @@ const Navbar = () => {
                     height={40}
                     className='bg-white rounded-sm mr-2'
                   />
-                  <sup className='text-xl'>{}</sup>
+                  <sup className='text-xl'>{cart.length}</sup>
                 </>
               ) : (
                 <>
@@ -140,13 +140,13 @@ const Navbar = () => {
         </nav>
       </header>
       {isMenuOpen && (
-        <div className='flex justify-end border-2'>
-          <ul className='absolute w-1/4 lg:hidden flex flex-col items-start justify-start  p-4 gap-6 border-2  '>
+        <div className='flex justify-end border-2 '>
+          <ul className='absolute w-1/3 lg:hidden flex flex-col items-start justify-start  p-4 gap-6 border-2  bg-primary'>
             {navLinks.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className='font-montserrat leading-normal text-lg    '
+                  className='font-montserrat leading-normal text-lg text-primary-foreground   '
                 >
                   {item.label}
                 </Link>
@@ -155,7 +155,7 @@ const Navbar = () => {
             {!session ? (
               <Link
                 href={'/login'}
-                className='font-montserrat leading-normal bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-md'
+                className='font-montserrat leading-normal bg-primary text-primary-foreground hover:bg-primary/90  rounded-md'
               >
                 Login
               </Link>
@@ -180,9 +180,9 @@ const Navbar = () => {
                     alt='icon'
                     width={40}
                     height={40}
-                    className='bg-white rounded-sm mr-2'
+                    className='text-primary rounded-sm mr-2'
                   />
-                  <sup className='text-xl'>{len}</sup>
+                  <sup className='text-xl text-primary-foreground'>{cart.length}</sup>
                 </>
               ) : (
                 <>
@@ -191,8 +191,9 @@ const Navbar = () => {
                   alt='icon'
                   width={40}
                   height={40}
+                  className='bg-primary-foreground rounded-sm mr-2'
                 />
-                <sup className='text-xl'>{len}</sup>
+                <sup className='text-xl text-primary-foreground '>{cart.length}</sup>
                 </>
               )}
             </Link>

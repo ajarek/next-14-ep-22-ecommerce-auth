@@ -39,7 +39,7 @@ const AddCart = ({ id, price, name, image }: AddCartProps)=> {
     } finally {
      
       
-        router.push('/cart')
+        router.push('/shop')
     }
   }
   
