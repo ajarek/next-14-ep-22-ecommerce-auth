@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import connect from '@/utils/db'
-import ProductModel  from '@/models/Product'
+import { getAllProducts } from '@/lib/getProducts'
 import Link from 'next/link'
 import {
   Card,
@@ -12,10 +11,7 @@ import {
 } from '@/components/ui/card'
 
 const Shop = async () => {
-  await connect()
-  const products = (await ProductModel.find({}).sort({
-    _id: -1,
-  })) 
+  const products = await getAllProducts()
   return (
     <div className="flex min-h-screen flex-col items-start justify-between p-8 max-md:p-4">
       <h1 className='text-xl'>Showing <span>{products.length}</span> Products</h1>

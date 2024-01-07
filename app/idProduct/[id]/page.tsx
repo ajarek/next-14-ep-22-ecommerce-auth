@@ -1,16 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import connect from '@/utils/db'
-import ProductModel  from '@/models/Product'
 import AddCart from '@/components/AddCart'
+import {getProduct} from '@/lib/getProducts'
 
 const ProductsDetails = async ({ params }: { params: { id: string } }) => {
 const { id } = params
 
-
-  await connect()
-  const product = await ProductModel.findById({_id:id})
+const product =await getProduct(id)
+ 
   return (
     <div className='flex min-h-full flex-col  p-8 max-md:p-4'>
       <div className='grid grid-cols-2 gap-4  place-items-center mt-16'>

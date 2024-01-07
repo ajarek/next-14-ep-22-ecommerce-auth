@@ -1,5 +1,4 @@
-import connect from '@/utils/db'
-import ProductModel  from '@/models/Product'
+import { getAllProducts } from '@/lib/getProducts'
 import {
   Card,
   CardContent,
@@ -14,10 +13,7 @@ import Image from 'next/image'
 
 const page = async ({ params }: { params: { category: string } }) => {
   const { category } = params
-  await connect()
-  const products = (await ProductModel.find({}).sort({
-    _id: -1,
-  })) 
+  const products = await getAllProducts()
   const array=products.filter(el=>el.category===category)
   return (
     <div className="flex min-h-screen flex-col items-start justify-between p-8 max-md:p-4">
