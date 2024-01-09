@@ -1,4 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img width="300" alt="Zrzut ekranu 2024-01-09 220932" src="https://github.com/ajarek/next-14-ep-22-ecommerce-auth/assets/61388692/c6964d86-443e-4387-8f8b-09c69e2c658b">
+<img width="300" alt="Zrzut ekranu 2024-01-09 221004" src="https://github.com/ajarek/next-14-ep-22-ecommerce-auth/assets/61388692/9b0afa9a-9079-4c2d-8d1c-6354ff862e2e">
+<img width="300" alt="Zrzut ekranu 2024-01-09 221059" src="https://github.com/ajarek/next-14-ep-22-ecommerce-auth/assets/61388692/74b4d27a-b0b6-4cc5-89eb-ece3f59756f7">
+<img width="300" alt="Zrzut ekranu 2024-01-09 221132" src="https://github.com/ajarek/next-14-ep-22-ecommerce-auth/assets/61388692/b64a0434-63d3-42d5-8fc9-73a69965cbe4">
+
+<img width="150" alt="Zrzut ekranu 2024-01-09 220749" src="https://github.com/ajarek/next-14-ep-22-ecommerce-auth/assets/61388692/bf99f342-e0e8-44df-8df1-caaf0332489a">
+<img width="150" alt="Zrzut ekranu 2024-01-09 220710" src="https://github.com/ajarek/next-14-ep-22-ecommerce-auth/assets/61388692/e9fed236-dc6d-499e-a7ea-2d7e88bdd96a">
+<img width="150" alt="Zrzut ekranu 2024-01-09 220640" src="https://github.com/ajarek/next-14-ep-22-ecommerce-auth/assets/61388692/e31447cb-7816-4e97-be7c-7e0e9bb3516f">
+
+
 
 ## Getting Started
 
