@@ -11,8 +11,8 @@ export async function create(formData: FormData) {
     name: z.string(),
     price: z.string(),
     category: z.string(),
-    status:z.string(),
-    description:z.string()
+    status: z.string(),
+    description: z.string(),
   })
 
   const productData = userSchema.parse({

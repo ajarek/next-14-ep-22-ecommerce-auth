@@ -4,13 +4,11 @@ import React, { useContext } from 'react'
 import { CartContext } from '@/contexts/context'
 import { Button } from './ui/button'
 
-
 interface AddCartProps {
   id: string
   price: string
   name: string
   image: string
-
 }
 type NewProduct = {
   dataId: string
@@ -19,31 +17,27 @@ type NewProduct = {
   image: string
 }
 
-const AddCart = ({ id, price, name, image }: AddCartProps)=> {
+const AddCart = ({ id, price, name, image }: AddCartProps) => {
   const router = useRouter()
   const { cart, setCart } = useContext(CartContext)
 
   const addToCart = () => {
     const newProduct: NewProduct = {
       dataId: id,
-      price:price,
-      name:name,
-      image:image
+      price: price,
+      name: name,
+      image: image,
     }
 
     try {
-   setCart([...cart, newProduct])
-    
+      setCart([...cart, newProduct])
     } catch (error) {
       console.error('Error occurred while saving to localStorage:', error)
     } finally {
-     
-      
-        router.push('/shop')
+      router.push('/shop')
     }
   }
-  
-  
+
   return (
     <div className='w-full flex'>
       <Button

@@ -11,7 +11,7 @@ const DropdownMenu = () => {
     setMenuOpen(!isMenuOpen)
   }
 
-  const handleItemClick = ()=> {
+  const handleItemClick = () => {
     setMenuOpen(false)
   }
 

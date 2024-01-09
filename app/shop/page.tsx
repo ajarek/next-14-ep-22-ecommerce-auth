@@ -13,9 +13,11 @@ import {
 const Shop = async () => {
   const products = await getAllProducts()
   return (
-    <div className="flex min-h-screen flex-col items-start justify-between p-8 max-md:p-4">
-      <h1 className='text-xl'>Showing <span>{products.length}</span> Products</h1>
-     <ul className='grid grid-cols-3 max-md:grid-cols-1 gap-6'>
+    <div className='flex min-h-screen flex-col items-start justify-between p-8 max-md:p-4'>
+      <h1 className='text-xl'>
+        Showing <span>{products.length}</span> Products
+      </h1>
+      <ul className='grid grid-cols-3 max-md:grid-cols-1 gap-6'>
         {products.map((item) => (
           <li key={item._id}>
             <Link
@@ -35,7 +37,7 @@ const Shop = async () => {
                 </CardHeader>
                 <CardContent>
                   <p className='text-center'>{item.name}</p>
-                  <p className='text-center'>{(+item.price). toFixed(2) } $</p>
+                  <p className='text-center'>{(+item.price).toFixed(2)} $</p>
                 </CardContent>
               </Card>
             </Link>

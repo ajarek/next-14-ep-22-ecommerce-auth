@@ -68,9 +68,7 @@ const Register = () => {
     sessionStatus !== 'authenticated' && (
       <div className='flex h-full  flex-col items-center justify-center p-12'>
         <div className='p-8 rounded border-2 w-[375px]'>
-          <h1 className='text-4xl  text-center font-semibold mb-8'>
-            Register
-          </h1>
+          <h1 className='text-4xl  text-center font-semibold mb-8'>Register</h1>
           <form
             onSubmit={handleSubmit}
             className='flex flex-col gap-4'

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState,useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { useTheme } from 'next-themes'
 import { CartContext } from '@/contexts/context'
 import Link from 'next/link'
@@ -89,13 +89,13 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                <Image
-                  src={'/assets/icons/cart.svg'}
-                  alt='icon'
-                  width={40}
-                  height={40}
-                />
-                <sup className='text-xl'>{cart.length}</sup>
+                  <Image
+                    src={'/assets/icons/cart.svg'}
+                    alt='icon'
+                    width={40}
+                    height={40}
+                  />
+                  <sup className='text-xl'>{cart.length}</sup>
                 </>
               )}
             </Link>
@@ -148,7 +148,7 @@ const Navbar = () => {
               </li>
             ))}
             {!session ? (
-                <DropdownMenu />
+              <DropdownMenu />
             ) : (
               <Button
                 onClick={() => {
@@ -172,18 +172,22 @@ const Navbar = () => {
                     height={40}
                     className='text-primary rounded-sm mr-2'
                   />
-                  <sup className='text-xl text-primary-foreground'>{cart.length}</sup>
+                  <sup className='text-xl text-primary-foreground'>
+                    {cart.length}
+                  </sup>
                 </>
               ) : (
                 <>
-                <Image
-                  src={'/assets/icons/cart.svg'}
-                  alt='icon'
-                  width={40}
-                  height={40}
-                  className='bg-primary-foreground rounded-sm mr-2'
-                />
-                <sup className='text-xl text-primary-foreground '>{cart.length}</sup>
+                  <Image
+                    src={'/assets/icons/cart.svg'}
+                    alt='icon'
+                    width={40}
+                    height={40}
+                    className='bg-primary-foreground rounded-sm mr-2'
+                  />
+                  <sup className='text-xl text-primary-foreground '>
+                    {cart.length}
+                  </sup>
                 </>
               )}
             </Link>
