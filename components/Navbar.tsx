@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { ModeToggle } from './mode-toggle'
 import { signOut, useSession } from 'next-auth/react'
 import { Button } from './ui/button'
+import DropdownMenu from '@/components/DropdownMenu'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -58,13 +59,7 @@ const Navbar = () => {
               </li>
             ))}
             {!session ? (
-              <Link
-                href={'/login'}
-                className='border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 rounded-md '
-
-              >
-                Login
-              </Link>
+              <DropdownMenu />
             ) : (
               <Button
                 onClick={() => {
@@ -153,12 +148,7 @@ const Navbar = () => {
               </li>
             ))}
             {!session ? (
-              <Link
-                href={'/login'}
-                className='font-montserrat leading-normal bg-primary text-primary-foreground hover:bg-primary/90  rounded-md'
-              >
-                Login
-              </Link>
+                <DropdownMenu />
             ) : (
               <Button
                 onClick={() => {

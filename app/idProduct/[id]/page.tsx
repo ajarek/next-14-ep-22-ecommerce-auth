@@ -11,7 +11,7 @@ const product =await getProduct(id)
  
   return (
     <div className='flex min-h-full flex-col  p-8 max-md:p-4'>
-      <div className='grid grid-cols-2 gap-4  place-items-center mt-16'>
+      <div className='grid grid-cols-2  max-sm:grid-cols-1 gap-4   place-items-center mt-16'>
         <div className=''>
           <Image
           src={product.image}
